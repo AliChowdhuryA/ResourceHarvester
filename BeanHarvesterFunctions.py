@@ -209,26 +209,76 @@ def click_buyback():
         long_click(center)
     except Exception as e:
         handle_exception(e)
-
+def re_harvest():
+    try:
+        coords = locateImage('DBOPics/can_harvest_17.png',.8)
+        if coords is None:
+            raise ValueError("Can Harvest not found")
+        center = pyautogui.center(coords)
+        long_click(center)
+    except Exception as e:
+        handle_exception(e)
+def buy_with_110_gold():
+    try:
+        coords = locateImage('DBOPics/buy_with_110.png',.8)
+        if coords is None:
+            raise ValueError("buy_with_110.png not found")
+        center = pyautogui.center(coords)
+        long_click(center)
+    except Exception as e:
+        handle_exception(e)
 def buyback_beans():
-    
+    start_time = time.time()
+    timeout = 20  # timeout after 60 seconds
+    count = 0
+    while time.time() - start_time < timeout:
+        try:
+            coords = locateImage('DBOPics/senzu_beans.png',.8)
+            if coords is None:
+                raise ValueError("Can Harvest not found")
+            center = pyautogui.center(coords)
+            long_click(center)
+            time.sleep(1)
+            buy_with_110_gold()
+        except Exception as e:
+            handle_exception(e)
+
 def move(direction, seconds):
     time.sleep(2)
     pyautogui.keyDown(direction)  # hold down the left key
     time.sleep(seconds)
     pyautogui.keyUp(direction)
-#win32 functions
-def click(x,y):
-    win32api.SetCursorPos((x,y))
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
-def slow_click(x,y):
-    win32api.SetCursorPos((x,y))
-    time.sleep(.8)
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
-def enter_button():
-    win32api.keybd_event(0x0D,0,0,0)
-    time.sleep(.05)
-    win32api.keybd_event(0x0D,0 ,win32con.KEYEVENTF_KEYUP ,0)
+def click_menu():
+    try:
+        coords = locateImage('DBOPics/orange_carrot.png',.8)
+        if coords is None:
+            raise ValueError("orange_carrot.png not found")
+        center = pyautogui.center(coords)
+        long_click(center)
+    except Exception as e:
+        handle_exception(e)
+def click_function():
+#remake when youre better
+        pyautogui.press('left')
 
+def change_acc_button():
+    try:
+        time.sleep(.5)
+        pyautogui.press('up')
+        coords = locateImage('DBOPics/change_acc.png',.8)
+        if coords is None:
+            raise ValueError("change_acc.png not found")
+        center = pyautogui.center(coords)
+        long_click(center)
+    except Exception as e:
+        handle_exception(e)   
+
+def click_green_x():
+    try:
+        time.sleep(.5)
+        long_click(x=1087, y=555)
+    except Exception as e:
+        handle_exception(e)
+
+def enter_acc():
+    
