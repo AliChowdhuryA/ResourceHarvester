@@ -18,7 +18,7 @@ class AutoGui:
             print(f"An error occurred while typing keys: {e}")
             # Handle the exception as needed
     
-    def locate_on_screen(self, image_path, confidence=0.4):
+    def locate_on_screen(self, image_path, confidence=.95):
         try:
             location = pyautogui.locateOnScreen(image_path, confidence=confidence)
             
