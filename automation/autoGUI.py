@@ -1,4 +1,7 @@
+import time
 import pyautogui
+
+from pyautogui import hotkey
 
 class AutoGui:
     def move_mouse(self, x, y):
@@ -20,6 +23,7 @@ class AutoGui:
     
     def locate_on_screen(self, image_path, confidence=.95):
         try:
+            time.sleep(1)
             location = pyautogui.locateOnScreen(image_path, confidence=confidence)
             
             if location is None:
@@ -40,3 +44,15 @@ class AutoGui:
         center_y = y + height / 2
         self.move_mouse(center_x, center_y)
         return center_x, center_y
+    
+    def write(self, text):
+        try:
+            for char in text:
+                if char == "@":
+                    pyautogui.keyDown("shift")
+                    pyautogui.keyDown("2")
+                else:
+                    pyautogui.write(char)
+        except Exception as e:
+            print(f"An error occurred while writing text: {e}")
+            # Handle the exception as needed

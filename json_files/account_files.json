@@ -1,0 +1,14 @@
+{
+    "accounts": [
+        {
+            "email": "godzamasu@db.com"
+        },
+        {
+            "email": "example2@example.com"
+        },
+        {
+            "email": "example3@example.com"
+        }
+    ]
+
+}
