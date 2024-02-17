@@ -6,8 +6,7 @@ import pyautogui
 
 import os
 
-
-class GameLogin:
+class GameLogin():
     def __init__(self, username, password):
         self.username = username
         self.password = password
@@ -26,6 +25,28 @@ class GameLogin:
         with open(account_emails) as f:
             self.account_emails = json.load(f)
 
+    def click_login(self):
+        image_path = self.image_paths["login_button"]
+        # Locate the "login" button on the screen
+        result = self.auto_gui.locate_on_screen(image_path, confidence=.70)
+        if result is not None:
+            x, y, width, height = result
+            c_x, c_y = self.auto_gui.move_center(x, y, width, height)
+            self.auto_gui.click(c_x, c_y)
+        else:
+            print(f"Could not find the image {image_path} on the screen.")
+
+    def click_ok(self):
+        image_path = self.image_paths["login_ok_button"]
+        # Locate the "ok" button on the screen
+        result = self.auto_gui.locate_on_screen(image_path, confidence=.70)
+        if result is not None:
+            x, y, width, height = result
+            c_x, c_y = self.auto_gui.move_center(x, y, width, height)
+            self.auto_gui.click(c_x, c_y)
+            time.sleep(1)
+        else:
+            print(f"Could not find the image {image_path} on the screen.")
       
     def enter_username(self):
         """Clears the username field and enters the username."""
@@ -35,19 +56,17 @@ class GameLogin:
         # self.auto_gui.move_mouse(x, y)
         self.auto_gui.click(x, y)
 
-        for account in self.account_emails["accounts"]:
-        # Click on the username field
-            email = account["email"]
-            break
+        # for account in self.account_emails["accounts"]:
+        # # Click on the username field
+        #     email = account["email"]
+        #     break
         time.sleep(1)
-        self.auto_gui.write(email)
-
-
+        self.auto_gui.write(self.username)
 
     def click_change_account(self):
         image_path = self.image_paths["change_account"]
         # Locate the "change account" button on the screen
-        result = self.auto_gui.locate_on_screen(image_path)
+        result = self.auto_gui.locate_on_screen(image_path, confidence=.95)
         if result is not None:
             x, y, width, height = result
             c_x, c_y = self.auto_gui.move_center(x, y, width, height)
@@ -66,6 +85,8 @@ class GameLogin:
         # Simulate mouse movement and key presses to login
         self.click_change_account()
         self.enter_username()
+        self.click_ok()
+        self.click_login()
 
         # Wait for login process to complete
         time.sleep(random.uniform(1, 3))

@@ -1,6 +1,16 @@
 {
     
     "change_account": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/change_account.png",
-    "login_button": "login_button.png",
-    "logout_button": "logout_button.png"
+    "login_ok_button": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/login_ok_button.png",
+    "login_button": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/login_button.png",
+    "earth_senzu_9_mod": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/earth_senzu_9_mod.png",
+    "saiyan_senzu_8_mod": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/saiyan_senzu_8_mod.png",
+    "saiyan_senzu_7_mod": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/saiyan_senzu_7_mod.png",
+    "namek_senzu_8_mod": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/namek_senzu_8_mod.png",
+    "green_harvest_button": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/green_harvest_button.png",
+    "menu_button": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/menu_button.png",
+    "function_tab_color1": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/function_tab_color1.png",
+    "function_tab_color2": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/function_tab_color2.png",
+    "change_account_function_color1": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/change_account_function_color1.png",
+    "change_account_function_color2": "D:/1PythonWorks/CSC1500/FinalLab/FinalLab/BeanHarvester/images/change_account_function_color2.png"
 }

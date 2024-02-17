@@ -1,14 +1,26 @@
 {
     "accounts": [
         {
-            "email": "godzamasu@db.com"
+            "email": "4156320411",
+            "race": "saiyan",
+            "tree_level": "saiyan_senzu_8_mod"
         },
         {
-            "email": "example2@example.com"
+            "email": "thealichowdury@gmail.com",
+            "race": "saiyan",
+            "tree_level": "saiyan_senzu_7_mod"
         },
         {
-            "email": "example3@example.com"
+            "email": "godzamasu@db.com",
+            "race": "earth",
+            "tree_level": "earth_senzu_9_mod"
+        },
+        {
+            "email": "alichowdhury23@gmail.com",
+            "race": "earth",
+            "tree_level": "earth_senzu_9_mod"
         }
+
     ]
 
 }

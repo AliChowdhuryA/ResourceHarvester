@@ -14,6 +14,12 @@ class AutoGui:
             print(f"An error occurred while moving the mouse: {e}")
             # Handle the exception as needed
 
+    def press_key(self, key):
+        try:
+            pyautogui.press(key)
+        except Exception as e:
+            print(f"An error occurred while pressing the key: {e}")
+            # Handle the exception as needed
     def press_keys(self, keys):
         try:
             pyautogui.typewrite(keys)
@@ -32,6 +38,19 @@ class AutoGui:
         except Exception as e:
             print(f"An error occurred while locating the image: {e}")
     
+    def hard_click(self):
+        """Simulates a click and no movement of the mouse. This is useful for clicking on stubborn buttons."""
+        pyautogui.mouseDown()
+        time.sleep(1)
+        pyautogui.mouseUp()
+    
+    def double_click(self, x, y, button="left"):
+        try:
+            pyautogui.doubleClick(x, y, button=button)
+        except Exception as e:
+            print(f"An error occurred while double clicking the mouse: {e}")
+            # Handle the exception as needed
+
     def click(self, x, y, button="left"):
         try:
             pyautogui.click(x, y, button=button)
@@ -51,6 +70,8 @@ class AutoGui:
                 if char == "@":
                     pyautogui.keyDown("shift")
                     pyautogui.keyDown("2")
+                    pyautogui.keyUp("2")
+                    pyautogui.keyUp("shift")
                 else:
                     pyautogui.write(char)
         except Exception as e:
