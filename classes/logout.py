@@ -7,8 +7,9 @@ import pyautogui
 import os
 
 class GameLogout():
-    def __init__(self):
+    def __init__(self, race):
         self.auto_gui = AutoGui()
+        self.race = race
 
         # Load the image paths from the JSON file
         image_paths = os.path.join(os.path.dirname(__file__), 'image_paths.json')
@@ -57,7 +58,10 @@ class GameLogout():
             print(f"Could not find the image {image_path} on the screen.")
 
     def click_menu(self):
-        image_path = self.image_paths["menu_button"]
+        if self.race == "namek":
+            image_path = self.image_paths["namekmenu_button"]
+        else:
+            image_path = self.image_paths["menu_button"]
         # Locate the "menu" button on the screen
         result = self.auto_gui.locate_on_screen(image_path, confidence=.90)
         if result is not None:
