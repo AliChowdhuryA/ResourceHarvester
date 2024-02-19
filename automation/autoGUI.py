@@ -1,9 +1,52 @@
+import random
 import time
 import pyautogui
 
 from pyautogui import hotkey
 
+import os
+import json
+
 class AutoGui:
+    def move_right(self):
+        try:
+            delay = random.uniform(0.05, 0.3)
+
+
+            pyautogui.keyDown("right")
+            time.sleep(delay)
+            pyautogui.keyUp("right")
+        except Exception as e:
+            print(f"An error occurred while moving right: {e}")
+            # Handle the exception as needed
+
+    def move_left(self):
+        try:
+            delay = random.uniform(0.05, 0.3)
+            pyautogui.keyDown("left")
+            time.sleep(delay)
+            pyautogui.keyUp("left")
+        except Exception as e:
+            print(f"An error occurred while moving left: {e}")
+            # Handle the exception as needed
+
+    def check_loading(self, image_path, confidence=.95):
+        """Check if the game is still loading."""
+        print(image_path)
+
+        try:
+            time.sleep(3)
+            result = self.locate_on_screen(image_path, confidence=confidence)
+            if result is not None:
+                print("Game is still loading. Wait for 5 seconds...")
+                time.sleep(5)
+                return True
+            print("Game is done loading.")
+            return False
+        except Exception as e:
+            print(f"An error occurred while checking if the game is loading: {e}")
+            # Handle the exception as needed
+
     def move_mouse(self, x, y):
         try:
             pyautogui.moveTo(x, y)
@@ -36,7 +79,7 @@ class AutoGui:
                 raise Exception(f"Image {image_path} not found on screen.")
             return location
         except Exception as e:
-            print(f"An error occurred while locating the image: {e}")
+            print(f"An error occurred while locating {image_path} image: {e}")
     
     def hard_click(self):
         """Simulates a click and no movement of the mouse. This is useful for clicking on stubborn buttons."""

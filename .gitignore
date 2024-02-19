@@ -7,3 +7,6 @@ json_files/account_files.json
 classes/image_paths.json
 json_files/account_files.json
 json_files/account_files.json
+*.json
+json_files/account_files.json
+json_files/locations.json

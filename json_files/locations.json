@@ -1,4 +1,8 @@
 {
-    "gohan_house_aru_village": "D:\\1PythonWorks\\CSC1500\\FinalLab\\FinalLab\\BeanHarvester\\images\\locations\\gohan_house_aru_village.png"
+    "gohan_house_aru_village": "D:\\1PythonWorks\\CSC1500\\FinalLab\\FinalLab\\BeanHarvester\\images\\locations\\gohan_house_aru_village.png",
+    "moori_house_moori_village": "D:\\1PythonWorks\\CSC1500\\FinalLab\\FinalLab\\BeanHarvester\\images\\locations\\moori_house_moori_village.png",
+    "broly_house_kakalot_village": "D:\\1PythonWorks\\CSC1500\\FinalLab\\FinalLab\\BeanHarvester\\images\\locations\\broly_house_kakalot_village.png",
+
+    "aru_village_gohan_house": "D:\\1PythonWorks\\CSC1500\\FinalLab\\FinalLab\\BeanHarvester\\images\\locations\\aru_village_gohan_house.png"
     
 }

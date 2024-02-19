@@ -26,15 +26,35 @@ class GameLogin():
             self.account_emails = json.load(f)
 
     def click_login(self):
-        image_path = self.image_paths["login_button"]
-        # Locate the "login" button on the screen
-        result = self.auto_gui.locate_on_screen(image_path, confidence=.70)
-        if result is not None:
-            x, y, width, height = result
-            c_x, c_y = self.auto_gui.move_center(x, y, width, height)
-            self.auto_gui.click(c_x, c_y)
-        else:
-            print(f"Could not find the image {image_path} on the screen.")
+        try:
+            login_button_located = False
+            image_path = self.image_paths["login_button"]
+            
+            if not image_path:
+                print("Error: Image path not found.")
+                return
+
+            print(f"Looking for login button using image path: {image_path}")
+
+            # Locate the "login" button on the screen
+            count = 0
+            while login_button_located is False and count < 20:
+                count += 1
+                result = self.auto_gui.locate_on_screen(image_path, confidence=.70)
+                login_button_located = False
+                if result is not None:
+                    login_button_located = True
+                    x, y, width, height = result
+                    c_x, c_y = self.auto_gui.move_center(x, y, width, height)
+                    print(f"Login button found at coordinates: ({c_x}, {c_y}). Clicking now...")
+                    self.auto_gui.click(c_x, c_y)
+                    print("Clicked on the login button. Waiting for 5 seconds...")
+                    if self.auto_gui.check_loading(self.image_paths["loading"]):
+                        time.sleep(5)
+                else:
+                    print(f"Could not find the image {image_path} on the screen. Retrying...")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
     def click_ok(self):
         image_path = self.image_paths["login_ok_button"]
