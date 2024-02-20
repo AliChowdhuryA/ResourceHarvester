@@ -8,9 +8,45 @@ import os
 import json
 
 class AutoGui:
+
+    def drag_to_top(self, image_path, confidence=.95, x_offset=0, y_offset=0):
+        try:
+            result = self.locate_on_screen(image_path, confidence=confidence)
+            if result is not None:
+                x, y, width, height = result
+                x -= x_offset
+                y += y_offset
+                c_x, c_y = self.move_center(x, y, width, height)
+                c_x += x_offset
+                c_y -= y_offset
+                print(f"Dragging the menu bar to the top of the screen using image path: {image_path}...")
+                pyautogui.dragTo(c_x, c_y, duration=.3, tween=pyautogui.easeInOutQuad)
+                return c_x, c_y
+            print(f"Image {image_path} not found on the screen.")
+        except Exception as e:
+            print(f"An error occurred while dragging the menu bar: {e}")
+            # Handle the exception as needed
+
+    def click_button(self, image_path, confidence=.95):
+        try:
+            time.sleep(2)
+            result = self.locate_on_screen(image_path, confidence=confidence)
+            if result is not None:
+                x, y, width, height = result
+                c_x, c_y = self.move_center(x, y, width, height)
+                print(f"Clicking the button using image path: {image_path}...")
+                self.click(c_x, c_y)
+                self.hard_click()
+                return c_x, c_y
+            print(f"Image {image_path} not found on the screen.")
+        except Exception as e:
+            print(f"An error occurred while clicking the button: {e}")
+            # Handle the exception as needed
+
+
     def move_right(self):
         try:
-            delay = random.uniform(0.05, 0.3)
+            delay = random.uniform(0.05, 0.20)
 
 
             pyautogui.keyDown("right")
@@ -22,7 +58,7 @@ class AutoGui:
 
     def move_left(self):
         try:
-            delay = random.uniform(0.05, 0.3)
+            delay = random.uniform(0.05, 0.20)
             pyautogui.keyDown("left")
             time.sleep(delay)
             pyautogui.keyUp("left")
@@ -120,3 +156,4 @@ class AutoGui:
         except Exception as e:
             print(f"An error occurred while writing text: {e}")
             # Handle the exception as needed
+    

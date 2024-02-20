@@ -58,16 +58,14 @@ class GameLogout():
             print(f"Could not find the image {image_path} on the screen.")
 
     def click_menu(self):
-        if self.race == "namek":
-            image_path = self.image_paths["namekmenu_button"]
-        else:
-            image_path = self.image_paths["menu_button"]
-        # Locate the "menu" button on the screen
-        result = self.auto_gui.locate_on_screen(image_path, confidence=.90)
-        if result is not None:
-            x, y, width, height = result
-            c_x, c_y = self.auto_gui.move_center(x, y, width, height)
-            self.auto_gui.click(c_x, c_y)
+        image_paths = [self.image_paths["namekmenu_button"], self.image_paths["menu_button"], self.image_paths["namekmenu_button_b_bg"]]
+        for image_path in image_paths:
+            # Locate the "menu" button on the screen
+            result = self.auto_gui.locate_on_screen(image_path, confidence=.80)
+            if result is not None:
+                x, y, width, height = result
+                c_x, c_y = self.auto_gui.move_center(x, y, width, height)
+                self.auto_gui.click(c_x, c_y)
             
         else:
             print(f"Could not find the image {image_path} on the screen.")
