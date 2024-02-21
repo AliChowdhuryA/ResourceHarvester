@@ -1,6 +1,28 @@
 {
     "accounts": [
 
+
+        {
+            "email": "kornsama04@gmail.com",
+            "race": "namek",
+            "tree_level": "namek_senzu_8_mod"
+        },
+        {
+            "email": "4156320411",
+            "race": "saiyan",
+            "tree_level": "saiyan_senzu_8_mod"
+        },
+        {
+            "email": "nickzin04@new.com",
+            "race": "namek",
+            "tree_level": "namek_senzu_8_mod"
+        },
+    {
+        "email": "godzamasu@db.com",
+        "race": "earth",
+        "tree_level": "earth_senzu_9_mod"
+    },
+
         {
             "email": "alichowdhury23@gmail.com",
             "race": "earth",
@@ -30,14 +52,7 @@
             "email": "lordekai@thessjmanjininju.co.uk",
             "race": "earth",
             "tree_level": "earth_senzu_7_mod"
-        },
-
-        {
-            "email": "thealichowdury@gmail.com",
-            "race": "saiyan",
-            "tree_level": "saiyan_senzu_7_mod"
         }
-
 
     ]
 
